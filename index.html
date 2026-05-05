@@ -6,162 +6,312 @@
 <title>Abdul Rehman Abbasi | Portfolio</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
 
 body{
-    background:linear-gradient(135deg,#0a66c2,#eaf3ff);
-    color:#222;
-    overflow-x:hidden;
+background:radial-gradient(circle at top,#0f172a,#020617);
+color:#fff;
+overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* ================= TOP BISMILLAH ================= */
+.top-bismillah{
+position:fixed;
+top:15px;
+left:50%;
+transform:translateX(-50%);
+font-size:18px;
+letter-spacing:3px;
+color:#00f5ff;
+padding:10px 25px;
+border-radius:30px;
+
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 0 20px rgba(0,255,255,0.25);
+
+z-index:9998;
+animation:glowB 2s infinite alternate;
+}
+
+@keyframes glowB{
+from{text-shadow:0 0 5px #00f5ff;}
+to{text-shadow:0 0 20px #00ff9d;}
+}
+
+/* ================= LOADER ================= */
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#020617,#000);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeOut 1s ease forwards;
+animation-delay:2.2s;
+}
+
+.spinner{
+width:70px;
+height:70px;
+border-radius:50%;
+border:4px solid rgba(255,255,255,0.1);
+border-top:4px solid #00f5ff;
+border-right:4px solid #00ff9d;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{100%{transform:rotate(360deg);}}
+@keyframes fadeOut{100%{opacity:0;visibility:hidden;}}
+
+/* ================= BACKGROUND ================= */
 body::before{
-    content:"";
-    position:fixed;
-    width:100%;
-    height:100%;
-    background-image:
-    radial-gradient(circle at 20% 30%,rgba(255,255,255,0.2) 2px,transparent 2px),
-    radial-gradient(circle at 80% 70%,rgba(10,102,194,0.2) 3px,transparent 3px);
-    opacity:0.15;
-    z-index:-1;
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:
+radial-gradient(circle at 20% 30%,rgba(0,255,255,0.08),transparent 25%),
+radial-gradient(circle at 80% 70%,rgba(0,150,255,0.08),transparent 25%);
+animation:move 18s linear infinite;
+z-index:-1;
 }
 
-/* HERO */
+@keyframes move{
+50%{transform:translate(-50px,-80px);}
+}
+
+/* ================= HERO ================= */
 .hero{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:50px;
-    padding:80px 20px;
-    flex-wrap:wrap;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:60px;
+padding:120px 20px 80px;
+flex-wrap:wrap;
 }
 
 .hero img{
-    width:260px;
-    border-radius:20px;
-    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+width:280px;
+border-radius:25px;
+border:2px solid rgba(255,255,255,0.2);
+box-shadow:0 0 30px rgba(0,255,255,0.3);
+transition:0.4s;
 }
 
-.hero-text{max-width:500px;}
+.hero img:hover{
+transform:scale(1.05) rotate(-2deg);
+}
 
-.hero-text h1{font-size:40px;color:#0a66c2;}
+.hero-text{
+max-width:600px;
+padding:25px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:20px;
+text-align:center;
+}
 
-.hero-text p{margin-top:15px;line-height:1.6;}
+.hero-text h1{
+font-size:45px;
+background:linear-gradient(90deg,#00f5ff,#00ff9d);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin:10px 0;
+}
 
-/* BUTTON */
+.hero-text p{
+line-height:1.7;
+color:#cbd5e1;
+}
+
+/* ================= BUTTONS ================= */
 .btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 25px;
-    background:#0a66c2;
-    color:white;
-    border-radius:30px;
-    text-decoration:none;
+display:inline-block;
+margin-top:20px;
+padding:14px 28px;
+border-radius:40px;
+text-decoration:none;
+font-weight:bold;
+color:#000;
+background:linear-gradient(45deg,#00f5ff,#00ff9d);
+box-shadow:0 0 25px rgba(0,255,200,0.4);
+transition:0.3s;
 }
 
-.btn:hover{background:#084a91;}
+.btn:hover{transform:translateY(-4px);}
 
-/* SECTION */
+.insta{
+display:inline-block;
+margin-top:15px;
+padding:10px 18px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+color:white;
+background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+}
+
+/* ================= SECTIONS ================= */
 .section{
-    background:rgba(255,255,255,0.85);
-    margin:40px auto;
-    padding:40px;
-    max-width:1000px;
-    border-radius:20px;
+max-width:1000px;
+margin:40px auto;
+padding:40px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:20px;
 }
 
-h2{margin-bottom:20px;color:#0a66c2;}
+h2{
+color:#00f5ff;
+margin-bottom:20px;
+text-align:center;
+}
 
-/* SKILLS */
+/* ================= SKILLS ================= */
 .skill{margin-bottom:15px;}
-.bar{background:#ddd;border-radius:20px;overflow:hidden;}
-.fill{height:10px;background:#0a66c2;}
 
-/* CARDS */
-.cards{display:flex;gap:20px;flex-wrap:wrap;}
+.bar{
+background:rgba(255,255,255,0.1);
+border-radius:20px;
+overflow:hidden;
+}
+
+.fill{
+height:10px;
+background:linear-gradient(90deg,#00f5ff,#00ff9d);
+}
+
+/* ================= CARDS ================= */
+.cards{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
 .card{
-    flex:1;
-    min-width:200px;
-    padding:20px;
-    background:white;
-    border-radius:15px;
+flex:1;
+min-width:200px;
+padding:20px;
+background:rgba(255,255,255,0.06);
+border-radius:15px;
+text-align:center;
+transition:0.3s;
 }
 
-/* STICKY BUTTON */
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(0,255,255,0.2);
+}
+
+/* ================= WHATSAPP ================= */
 .sticky-btn{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    padding:15px 20px;
-    border-radius:50px;
-    text-decoration:none;
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+color:white;
+font-weight:bold;
 }
 
+footer{
+text-align:center;
+padding:20px;
+color:#94a3b8;
+}
 </style>
 </head>
 
 <body>
 
+<!-- LOADER -->
+<div id="loader">
+  <div class="spinner"></div>
+  <h2>Loading Portfolio...</h2>
+</div>
+
+<!-- TOP BISMILLAH -->
+<div class="top-bismillah">
+بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
+</div>
+
+<!-- HERO -->
 <div class="hero">
+
 <img src="profile.jpg.jpeg" alt="profile">
+
 <div class="hero-text">
+
 <h1>Abdul Rehman Abbasi</h1>
+
 <p>
-I help businesses grow with professional video editing, AutoCAD designs,
-eCommerce graphics, and digital marketing.
+🚀 “Success comes from consistency, skill, and dedication.”<br><br>
+
+Professional Freelancer in Video Editing, AutoCAD Design & Digital Marketing.<br><br>
+
+✨ I create modern, high-impact digital solutions that help businesses grow.
 </p>
 
-<a class="btn" href="https://wa.me/923141715486" target="_blank">
-Hire Me on WhatsApp
-</a>
+<a class="btn" href="https://wa.me/923141715486">💬 Hire Me</a>
+<br>
+<a class="insta" href="https://instagram.com/x.r4man">📷 Instagram: x.r4man</a>
+
 </div>
 </div>
 
+<!-- SKILLS -->
 <div class="section">
 <h2>My Skills</h2>
 
-<div class="skill">AutoCAD (80%)
-<div class="bar"><div class="fill" style="width:80%"></div></div>
+<div class="skill">AutoCAD <div class="bar"><div class="fill" style="width:80%"></div></div></div>
+<div class="skill">Photoshop <div class="bar"><div class="fill" style="width:95%"></div></div></div>
+<div class="skill">Video Editing <div class="bar"><div class="fill" style="width:90%"></div></div></div>
+<div class="skill">Marketing <div class="bar"><div class="fill" style="width:75%"></div></div></div>
 </div>
 
-<div class="skill">Photoshop (95%)
-<div class="bar"><div class="fill" style="width:95%"></div></div>
-</div>
-
-<div class="skill">Communication (80%)
-<div class="bar"><div class="fill" style="width:80%"></div></div>
-</div>
-
-<div class="skill">Marketing (70%)
-<div class="bar"><div class="fill" style="width:70%"></div></div>
-</div>
-
-<div class="skill">Website Designing (78%)
-<div class="bar"><div class="fill" style="width:78%"></div></div>
-</div>
-
-</div>
-
+<!-- WHY -->
 <div class="section">
 <h2>Why Choose Me</h2>
 <div class="cards">
-<div class="card">✔ High-quality work</div>
-<div class="card">✔ Fast delivery</div>
-<div class="card">✔ Client satisfaction</div>
+<div class="card">⚡ Fast Delivery</div>
+<div class="card">💎 Premium Quality</div>
+<div class="card">🎯 Client Satisfaction</div>
 </div>
 </div>
 
+<!-- CONTACT -->
 <div class="section">
 <h2>Contact</h2>
-<p>📱 03141715486</p>
-<p>📧 abdulrehmanabbasi2441@gmail.com</p>
-<p>📷 x.r4man</p>
+<p style="text-align:center;">📱 03141715486</p>
+<p style="text-align:center;">📧 abdulrehmanabbasi2441@gmail.com</p>
 </div>
 
 <a class="sticky-btn" href="https://wa.me/923141715486">💬 Hire Me</a>
+
+<script>
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},2200);
+</script>
+
+<footer>© 2026 Abdul Rehman Abbasi</footer>
 
 </body>
 </html>
